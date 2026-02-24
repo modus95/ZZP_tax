@@ -96,9 +96,9 @@ def box1_tax_calculate(
     health_insurance = min(tax_base, zvw['max_income']) * zvw['rate'] if apply_zvw else 0
 
     tax = IncomeTax(box1=box1, tax_base=tax_base)
-    box1_tax_netto = tax.income_tax -  tax.total_tax_credit
+    box1_tax_netto = tax.income_tax - tax.total_tax_credit
 
-    income_netto = income - box1_tax_netto - health_insurance
+    income_netto = income - total_cost - box1_tax_netto - health_insurance
 
     return {
         'year': year,
