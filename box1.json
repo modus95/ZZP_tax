@@ -1,0 +1,152 @@
+[
+  {
+    "year": 2026,
+    "box1_rates": [
+      {
+        "threshold": 38883,
+        "rate": 0.3575
+      },
+      {
+        "threshold": 78426,
+        "rate": 0.3756
+      },
+      {
+        "threshold": 500000,
+        "rate": 0.495
+      }
+    ],
+    "tax_deductions": [
+      {
+        "name": "zelfstandigenaftrek",
+        "amount": 1200
+      },
+      {
+        "name": "startersaftrek",
+        "amount": 2123
+      }
+    ],
+    "mkb_winstvrijstelling": {
+      "rate": 0.127
+    },
+    "tax_credits": [
+      {
+        "arbeidskorting": [
+          {
+            "threshold": 11965,
+            "bias": 0,
+            "rate": 0.08324
+          },
+          {
+            "threshold": 25845,
+            "bias": 996,
+            "rate": 0.31009
+          },
+          {
+            "threshold": 45592,
+            "bias": 5300,
+            "rate": 0.0195
+          },
+          {
+            "threshold": 132920,
+            "bias": 5685,
+            "rate": -0.0651
+          }
+        ]
+      },
+      {
+        "algeemene_heffingskorting": [
+          {
+            "threshold": 29736,
+            "bias": 3115,
+            "rate": 0
+          },
+          {
+            "threshold": 78426,
+            "bias": 3115,
+            "rate": -0.06398
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "year": 2025,
+    "box1_rates": [
+      {
+        "threshold": 38441,
+        "rate": 0.3582
+      },
+      {
+        "threshold": 76817,
+        "rate": 0.3748
+      },
+      {
+        "threshold": 500000,
+        "rate": 0.495
+      }
+    ],
+    "tax_deductions": [
+      {
+        "name": "zelfstandigenaftrek",
+        "amount": 2470
+      },
+      {
+        "name": "startersaftrek",
+        "amount": 2123
+      }
+    ],
+    "mkb_winstvrijstelling": {
+      "rate": 0.127
+    },
+    "tax_credits": [
+      {
+        "arbeidskorting": [
+          {
+            "threshold": 0,
+            "bias": 0,
+            "rate": 0.08053
+          },
+          {
+            "threshold": 12169,
+            "bias": 980,
+            "rate": 0.30030
+          },
+          {
+            "threshold": 26288,
+            "bias": 5220,
+            "rate": 0.02258
+          },
+          {
+            "threshold": 43071,
+            "bias": 5599,
+            "rate": -0.06510
+          },
+          {
+            "threshold": 129079,
+            "bias": 0,
+            "rate": 0
+          }
+        ]
+      },
+      {
+        "algeemene_heffingskorting": [
+          {
+            "threshold": 0,
+            "bias": 3068,
+            "rate": 0
+          },
+          {
+            "threshold": 28406,
+            "bias": 3068,
+            "rate": -0.06337
+          },
+          {
+            "threshold": 76818,
+            "bias": 0,
+            "rate": 0
+          }
+        ]
+      }
+    ]
+  }
+]
