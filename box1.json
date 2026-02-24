@@ -67,7 +67,11 @@
           }
         ]
       }
-    ]
+    ],
+    "zorgverzekeringswet": {
+      "rate": 0.0485,
+      "max_income": 79409
+    }
   },
   {
     "year": 2025,
@@ -137,6 +141,10 @@
           }
         ]
       }
-    ]
+    ],
+    "zorgverzekeringswet": {
+      "rate": 0.0526,
+      "max_income": 75864
+    }
   }
 ]

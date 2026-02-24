@@ -73,7 +73,8 @@ def box1_tax_calculate(
     income: float,
     year: int,
     zzp: bool=False,
-    costs: dict=None
+    costs: dict=None,
+    apply_zvw: bool=True
 ):
     """Calculate Box1 tax"""
     box1 = load_box1(year)
@@ -90,8 +91,14 @@ def box1_tax_calculate(
     if zzp:
         tax_base = tax_base * (1 - box1['mkb_winstvrijstelling']['rate'])
 
+    # Apply Zorgverzekeringswet (health insurance)
+    zvw = box1['zorgverzekeringswet']
+    health_insurance = min(tax_base, zvw['max_income']) * zvw['rate'] if apply_zvw else 0
+
     tax = IncomeTax(box1=box1, tax_base=tax_base)
     box1_tax_netto = tax.income_tax -  tax.total_tax_credit
+
+    income_netto = income - box1_tax_netto - health_insurance
 
     return {
         'year': year,
@@ -110,6 +117,8 @@ def box1_tax_calculate(
         'box1_tax': round(tax.income_tax, 2),
         'box1_tax_netto': round(box1_tax_netto, 2),
         'effective_tax_rate': f'{box1_tax_netto / tax_base:.2%}',
-        'income_netto': round(income - box1_tax_netto, 2),
-        'income_netto_monthly': round((income - box1_tax_netto) / 12, 2)
+        'health_insurance': round(health_insurance, 2),
+        'health_insurance_monthly': round(health_insurance / 12, 2),
+        'income_netto': round(income_netto, 2),
+        'income_netto_monthly': round(income_netto / 12, 2)
         }
