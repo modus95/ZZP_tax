@@ -68,6 +68,11 @@ class IncomeTax:
 
         return income_tax
 
+    @property
+    def income_tax_netto(self):
+        """The total amount of net income tax (after tax credits)"""
+        return self.income_tax - self.total_tax_credit
+
 
 def box1_tax_calculate(
     income: float,
@@ -82,7 +87,7 @@ def box1_tax_calculate(
     tax_base = income
 
     # Reduce tax base by costs (0 - for non-ZZP)
-    total_cost = sum(v for n,v in costs.items()) if costs else 0
+    total_cost = sum(v for _,v in costs.items()) if costs else 0
     tax_base -= total_cost
 
     # Apply ZZP deductions and MKB profit exemption
@@ -96,8 +101,8 @@ def box1_tax_calculate(
     health_insurance = min(tax_base, zvw['max_income']) * zvw['rate'] if apply_zvw else 0
 
     tax = IncomeTax(box1=box1, tax_base=tax_base)
-    box1_tax_netto = tax.income_tax - tax.total_tax_credit
 
+    box1_tax_netto = tax.income_tax_netto
     income_netto = income - total_cost - box1_tax_netto - health_insurance
 
     return {
@@ -108,12 +113,12 @@ def box1_tax_calculate(
         'zzp_deduction': total_deduction,
         'tax_base': round(tax_base, 2),
         'arbeidskorting': round(
-            sum(tc.amount for tc in tax.tax_credits if tc.name == 'arbeidskorting'),
-            2),
+            sum(tc.amount for tc in tax.tax_credits
+                if tc.name == 'arbeidskorting'), 2),
         'algeemene_korting': round(
-            sum(tc.amount for tc in tax.tax_credits if tc.name == 'algeemene_heffingskorting'),
-            2),
-        'total_tax_credit': round(tax.total_tax_credit, 2),
+            sum(tc.amount for tc in tax.tax_credits
+                if tc.name == 'algeemene_heffingskorting'), 2),
+        'total_tax_korting': round(tax.total_tax_credit, 2),
         'box1_tax': round(tax.income_tax, 2),
         'box1_tax_netto': round(box1_tax_netto, 2),
         'effective_tax_rate': f'{box1_tax_netto / tax_base:.2%}',

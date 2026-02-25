@@ -35,8 +35,8 @@ This project utilizes `uv` for fast dependency management. To set up the environ
 
 ```bash
 # Clone the repository
-git clone git@github.com:modus95/nl_box1_tax.git
-cd nl_box1_tax
+git clone git@github.com:modus95/ZZP_tax.git
+cd ZZP_tax
 
 # Sync dependencies and create a virtual environment
 uv sync
