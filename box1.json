@@ -71,6 +71,31 @@
     "zorgverzekeringswet": {
       "rate": 0.0485,
       "max_income": 79409
+    },
+    "eigenwoningforfait": [
+      {
+        "threshold": 12500,
+        "rate": 0
+      },
+      {
+        "threshold": 25000,
+        "rate": 0.001
+      },
+      {
+        "threshold": 50000,
+        "rate": 0.002
+      },
+      {
+        "threshold": 75000,
+        "rate": 0.0025
+      },
+      {
+        "threshold": 1350000,
+        "rate": 0.0035
+      }      
+    ],
+    "eigenwoning_aftrek": {
+      "rate": 0.71867
     }
   },
   {
@@ -145,6 +170,31 @@
     "zorgverzekeringswet": {
       "rate": 0.0526,
       "max_income": 75864
+    },
+    "eigenwoningforfait": [
+      {
+        "threshold": 12500,
+        "rate": 0
+      },
+      {
+        "threshold": 25000,
+        "rate": 0.001
+      },
+      {
+        "threshold": 50000,
+        "rate": 0.002
+      },
+      {
+        "threshold": 75000,
+        "rate": 0.0025
+      },
+      {
+        "threshold": 1330000,
+        "rate": 0.0035
+      }      
+    ],
+    "eigenwoning_aftrek": {
+      "rate": 0.76667
     }
   }
 ]
